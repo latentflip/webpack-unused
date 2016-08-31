@@ -25,6 +25,7 @@ webpack --json | webpack-unused -s src
 * this doesn't check for any unused npm modules etc that you have installed (`node_modules` is ignored)
 * webpack-unused will detect non-js files that are required via loaders etc, however any requires that happen outside of webpack's knowledge may be incorrectly reported as unused, for example:
     * css-preprocessor imports, for example `less`'s `@import` happens outside the webpack flow, so files which are only required via `@import` will report as unused, even if they are
+* it looks like currently files that would appear in your output from using webpack's `NormalModuleReplacementPlugin` don't appear in webpack's `--json` output, and so will be incorrectly reported as unused, while the original may be incorrectly reported as used. [issue #1](https://github.com/latentflip/webpack-unused/issues/1)
 * ideally, you'll have all your frontend code in a `src/` directory or similar so that you can use the `-s` flag, if not, any non-frontend code in cwd will be reported as unused
 
 ## Contributing, etc
