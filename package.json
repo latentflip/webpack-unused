@@ -1,14 +1,27 @@
 {
   "name": "webpack-unused",
+  "description": "Check your frontend code for files/assets that are no longer used.",
   "version": "0.1.0",
-  "bin": "index.js",
+  "author": "Philip Roberts",
+  "bin": {
+    "webpack-unused": "index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/latentflip/webpack-unused/issues"
+  },
   "dependencies": {
     "es6-promisify": "^3.0.0",
     "glob": "^6.0.4",
     "yargs": "^5.0.0"
   },
-  "license": "ISC",
+  "devDependencies": {},
+  "homepage": "https://github.com/latentflip/webpack-unused#readme",
+  "license": "MIT",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/latentflip/webpack-unused.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
