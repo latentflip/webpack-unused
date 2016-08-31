@@ -1,0 +1,15 @@
+{
+  "name": "webpack-unused",
+  "version": "0.1.0",
+  "bin": "index.js",
+  "dependencies": {
+    "es6-promisify": "^3.0.0",
+    "glob": "^6.0.4",
+    "yargs": "^5.0.0"
+  },
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
