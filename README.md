@@ -2,6 +2,9 @@
 
 Check your frontend code for files/assets that are no longer used.
 
+Uses the output of `webpack --json` to see which files are actually used in your bundle,
+and lists files which haven't been required.
+
 ## Usage:
 
 ```bash
