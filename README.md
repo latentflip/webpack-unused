@@ -28,6 +28,10 @@ webpack --json | webpack-unused -s src
 * it looks like currently files that would appear in your output from using webpack's `NormalModuleReplacementPlugin` don't appear in webpack's `--json` output, and so will be incorrectly reported as unused, while the original may be incorrectly reported as used. [issue #1](https://github.com/latentflip/webpack-unused/issues/1)
 * ideally, you'll have all your frontend code in a `src/` directory or similar so that you can use the `-s` flag, if not, any non-frontend code in cwd will be reported as unused
 
+## Related
+
+- [jspm-unused](https://github.com/oligot/jspm-unused) - Find unused files in a Jspm project
+
 ## Contributing, etc
 
 This is just a first stab, and I'm publishing it because I constantly look for/rewrite code to achieve this. PRs/Suggestions for improvements very welcome.
