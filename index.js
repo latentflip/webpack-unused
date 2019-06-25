@@ -29,7 +29,19 @@ const isWebpackLocal = (path) => {
 };
 
 const selectLocalModules = (webpack) => {
-  return webpack.modules.filter((module) => isWebpackLocal(module.name))
+  let modules = webpack.modules;
+
+  if (!modules && webpack.children && webpack.children.length) {
+  	modules = [];
+
+	  webpack.children.forEach((child) => {
+	    child.chunks.forEach((chunk) => {
+	      modules = modules.concat(chunk.modules);
+	    });
+	  });
+  }
+
+  return modules.filter((module) => isWebpackLocal(module.name))
                         .map((module) => Path.join(cwd, module.name));
 };
 
