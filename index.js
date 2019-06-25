@@ -32,13 +32,13 @@ const selectLocalModules = (webpack) => {
   let modules = webpack.modules;
 
   if (!modules && webpack.children && webpack.children.length) {
-  	modules = [];
+    modules = [];
 
-	  webpack.children.forEach((child) => {
-	    child.chunks.forEach((chunk) => {
-	      modules = modules.concat(chunk.modules);
-	    });
-	  });
+    webpack.children.forEach((child) => {
+      child.chunks.forEach((chunk) => {
+        modules = modules.concat(chunk.modules);
+      });
+    });
   }
 
   return modules.filter((module) => isWebpackLocal(module.name))
