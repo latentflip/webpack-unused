@@ -6,7 +6,6 @@
 const Path = require('path');
 const Promisify = require('es6-promisify');
 const Glob2 = Promisify(require('glob'));
-const Glob = require('glob');
 
 // webpack root? ideally start from package.json location I think
 const cwd = process.cwd();
