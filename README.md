@@ -18,6 +18,12 @@ webpack --json | webpack-unused
 
 # if your source code is in a directory, like src/ pass that as a flag:
 webpack --json | webpack-unused -s src
+
+# if your you want to ignore some files that are not used by webpack - like specs you can pass ignore flag (glob):
+webpack --json | webpack-unused -s src -i **/*.spec.js
+
+# or even multiple glob patterns:
+webpack --json | webpack-unused -s src -i '**/*.spec.js, lib/*.js'
 ```
 
 ## Notes/Caveats:

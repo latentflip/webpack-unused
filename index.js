@@ -16,12 +16,18 @@ const argv = require('yargs')
               .alias('s', 'src')
               .describe('s', 'Directory of source code')
               .default('s', '.')
+              .alias('i', 'ignore')
+              .describe('i', 'Ignore pattern')
+              .default('i', '')
               .help('h')
               .alias('h', 'help')
               .argv;
 
 // specify which directory to look in for source files
 const srcDir = Path.resolve(argv.src);
+
+// specify ignore pattern(s)
+const ignorePattern = argv.ignore.split(', ');
 
 const isWebpackLocal = (path) => {
   return (path.indexOf('./') === 0 && path.indexOf('./~/') === -1);
@@ -33,7 +39,7 @@ const selectLocalModules = (webpack) => {
 };
 
 const findAllLocalFiles = (cwd) => {
-  return Glob2('!(node_modules)/**/*.*', { cwd: srcDir })
+  return Glob2('!(node_modules)/**/*.*', { cwd: srcDir, ignore: ignorePattern })
           .then((files) => files.map((f) => Path.join(srcDir, f)));
 };
 
